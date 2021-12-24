@@ -18,7 +18,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
   ```css
 input {
-  caret-color: transparent;
+    caret-color: transparent;
 
     &::placeholder {
       color: green;

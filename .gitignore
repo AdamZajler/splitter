@@ -16,4 +16,4 @@
 .prettierignore
 
 # My own ignores ;) 
-/node_modules
+node_modules

@@ -1,0 +1,29 @@
+@use "../variables"as *;
+
+.summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .left-box {
+        .title {
+            font-size: $formTitle;
+            color: $white;
+        }
+
+        .sub-title {
+            font-size: $subTitle;
+            color: $darkCyan3;
+        }
+    }
+
+    h2 {
+        margin: 0;
+        font-size: $summary;
+        color: $strongCyan;
+    }
+
+    &:first-of-type {
+        margin-bottom: 3rem;
+    }
+}

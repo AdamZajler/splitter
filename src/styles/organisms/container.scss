@@ -7,9 +7,18 @@
     background-color: $white;
     border-radius: 25px;
 
+    @media(max-width: $mobile) {
+        margin-top: 50%;
+        flex-direction: column;
+    }
+
     >.box {
         padding: 3rem 2.5rem;
         margin: 2rem;
+
+        @media(max-width: $mobile) {
+            margin: 2rem !important;
+        }
     }
 
     >.box--1 {
@@ -22,5 +31,14 @@
         margin-left: .5rem;
         background-color: $darkCyan1;
         border-radius: 25px;
+        display: flex;
+        flex-direction: column;
+
+        .reset {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
     }
 }

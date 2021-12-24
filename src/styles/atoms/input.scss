@@ -30,14 +30,11 @@
 
             &:focus {
                 border: 2px solid $strongCyan;
-            }
-        }
 
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button,
-        input[type="number"] {
-            -moz-appearance: textfield;
-            -webkit-appearance: none;
+                &::placeholder {
+                    color: transparent;
+                }
+            }
         }
 
         span.left-icon {
@@ -48,6 +45,24 @@
             top: 50%;
             left: 0;
             transform: translate(75%, -50%);
+        }
+    }
+
+    // For error
+    &.error {
+        .input-title {
+            position: relative;
+
+            &::after {
+                content: "Can't be zero";
+                position: absolute;
+                right: 0;
+                color: $red;
+            }
+        }
+
+        input {
+            border-color: $red;
         }
     }
 }

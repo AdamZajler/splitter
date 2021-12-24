@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="box box--1">
+      <label for="bill">
+        <p class="input-title">Bill</p>
+        <input type="number" name="bill" id="bill">
+        <span class="left-icon">$</span>
+      </label>
+
+      <div class="tip-options">
+        <p class="input-title">Select Tip %</p>
+        <div class="tips">
+          <div class="tip tip--1">5%</div>
+          <div class="tip tip--2">10%</div>
+          <div class="tip tip--3">15%</div>
+          <div class="tip tip--4">25%</div>
+          <div class="tip tip--5">50%</div>
+          <div class="tip tip--6">
+            <input type="number" name="tip-custom" id="tip-custom" placeholder="Custom">
+          </div>
+        </div>
+      </div>
+
+      <label for="people">
+        <p class="input-title">Number of People</p>
+        <input type="number" name="people" id="people">
+        <span class="left-icon">$</span>
+      </label>
+    </div>
+    <div class="box box--2">
+      <div class="summary summary-amount">
+        <div class="left-box">
+          <p class="title">Tip Amount</p>
+          <span class="sub-title">/ person</span>
+        </div>
+        <h2>$0.00</h2>
+      </div>
+      <div class="summary summary-total">
+        <div class="left-box">
+          <p class="title">Total</p>
+          <span class="sub-title">/ person</span>
+        </div>
+        <h2>$0.00</h2>
+      </div>
+      <div class="reset">RESET</div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Adam Zajler</a>.
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

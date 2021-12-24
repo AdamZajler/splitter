@@ -22,24 +22,14 @@ var Splitter = /*#__PURE__*/function () {
   }
 
   _createClass(Splitter, [{
-    key: "checkAllFields",
-    value: function checkAllFields() {
-      var bill = document.querySelector("input[name='bill']");
-      var tip = document.querySelector(".tips > .tip.active");
-      var people = document.querySelector("input[name='people']");
-      if (bill.value == 0 || people.value == 0 || tip == null) return false;
-
-      if (tip != null && tip.classList.contains("tip-custom")) {
-        if (tip.value == 0) return false;
-      }
-
-      return true;
-    }
-  }, {
     key: "isInputEmpty",
     value: function isInputEmpty() {
+      var self = this; // Get Bill & People input
+
       var inputs = document.querySelectorAll("input[name='bill'], input[name='people']");
       inputs.forEach(function (input) {
+        // If user is typing nothing or 0 add class error, 
+        // otherwise remove those classes
         input.addEventListener("input", function () {
           if (this.value === "" || this.value === "0") {
             this.closest("label").classList.add("error");
@@ -48,18 +38,28 @@ var Splitter = /*#__PURE__*/function () {
           }
         });
         input.addEventListener("blur", function () {
+          // On leave calculate result
+          self.caluclate(); // If user is leaving with nothing or 0 add class error, 
+          // otherwise remove those classes
+
           if (this.value === "" || this.value === "0") {
             this.closest("label").classList.add("error");
           } else {
             this.closest("label").classList.remove("error");
           }
+        }); // When user is typing calculate everything
+
+        input.addEventListener("input", function () {
+          // When user is typing calculate result
+          self.caluclate();
         });
       });
     }
   }, {
     key: "clickableTip",
     value: function clickableTip() {
-      // Get all tip options
+      var self = this; // Get all tip options
+
       var tips = document.querySelectorAll(".tips > .tip"); // Check if any tip has "active" class, if there is any, remove it's class
 
       function checkOthers(tip) {
@@ -73,27 +73,83 @@ var Splitter = /*#__PURE__*/function () {
       tips.forEach(function (tip) {
         tip.addEventListener("click", function () {
           checkOthers(tip);
-          this.classList.toggle("active");
+          this.classList.toggle("active"); // When user is clicking calculate result
+
+          self.caluclate();
         });
       });
     }
   }, {
+    key: "checkAllFields",
+    value: function checkAllFields() {
+      var bill = document.querySelector("input[name='bill']");
+      var tip = document.querySelector(".tips > .tip.active");
+      var people = document.querySelector("input[name='people']");
+
+      if (bill.value == 0 || people.value == 0 || tip == null) {
+        document.querySelector(".summary-amount h2").textContent = "$0.00";
+        document.querySelector(".summary-total h2").textContent = "$0.00";
+        return false;
+      }
+
+      ; // If tip is selected but it's custom 
+
+      if (tip != null && tip.classList.contains("tip-custom")) {
+        if (tip.value == 0) {
+          document.querySelector(".summary-amount h2").textContent = "$0.00";
+          document.querySelector(".summary-total h2").textContent = "$0.00";
+          return false;
+        }
+
+        ;
+      }
+
+      return true;
+    }
+  }, {
     key: "caluclate",
     value: function caluclate() {
-      if (this.checkAllFields == false) return;
+      // If any field is filled wrong
+      if (this.checkAllFields() == false) return; // Show RESET button
+
+      document.querySelector(".reset > .btn").classList.add("active"); // Get all fields values
+
       var textBill = document.querySelector("input[name='bill']").value;
-      var textTip = document.querySelector(".tips > .tip.active").textContent;
+      var textTip = document.querySelector(".tips > .tip.active");
       var textPeople = document.querySelector("input[name='people']").value;
-      var bill = parseInt(textBill);
-      var tip = parseInt(textTip.replace("%", ""));
+      var tipHolder; // If tip field is custom get it's value
+
+      if (textTip.classList.contains("tip-custom")) {
+        tipHolder = textTip.value / 100;
+      } else {
+        // If tip field is just div, then cut it's "%"
+        textTip = textTip.textContent;
+        tipHolder = textTip.replace("%", "");
+        tipHolder = parseInt(tipHolder) / 100;
+      } // Make every string a integer
+
+
+      var bill = parseFloat(textBill);
+      var tip = parseFloat(bill * tipHolder);
       var people = parseInt(textPeople);
       console.log("bill: ", bill, "tip: ", tip, " people: ", people);
-      var costs = bill + bill * (tip / 100);
+      var costs = bill + tip;
       var personTip = tip / people;
       var personTotal = costs / people;
       console.log("costs: ", costs, "personTip: ", personTip, " personTotal: ", personTotal);
       document.querySelector(".summary-amount h2").textContent = "$".concat(personTip.toFixed(2));
       document.querySelector(".summary-total h2").textContent = "$".concat(personTotal.toFixed(2));
+    }
+  }], [{
+    key: "reset",
+    value: function reset() {
+      if (!document.querySelector(".reset > .btn.active")) return;
+      document.querySelector("input[name='bill']").value = null;
+      document.querySelector(".tips > .tip.active").classList.remove("active");
+      document.querySelector("input[name='people']").value = null;
+      document.querySelector(".summary-amount h2").textContent = "$0.00";
+      document.querySelector(".summary-total h2").textContent = "$0.00";
+      document.querySelector(".reset > .btn").classList.remove("active");
     }
   }]);
 
@@ -102,11 +158,10 @@ var Splitter = /*#__PURE__*/function () {
 
 window.addEventListener('DOMContentLoaded', function () {
   new Splitter();
-}); // document.querySelector(".btn").addEventListener("click", function () {
-//     console.log("kilk")
-//     let test = Splitter.checkAllFields();
-//     console.log("wynik: ", test)
-// })
+  document.querySelector(".btn").addEventListener("click", function () {
+    Splitter.reset();
+  });
+});
 
 /***/ }),
 

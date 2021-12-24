@@ -12,27 +12,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 11px;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
   <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-  <div class="container">
+  <div id="container">
     <div class="box box--1">
-      <label for="bill">
+      <label for="bill" class="input">
         <p class="input-title">Bill</p>
-        <input type="number" name="bill" id="bill">
-        <span class="left-icon">$</span>
+        <div class="input-container">
+          <input type="number" name="bill" id="bill" placeholder="0">
+          <span class="left-icon"><img src="../images/icon-dollar.svg" alt=""></span>
+        </div>
       </label>
 
       <div class="tip-options">
@@ -49,10 +40,12 @@
         </div>
       </div>
 
-      <label for="people">
+      <label for="people" class="input">
         <p class="input-title">Number of People</p>
-        <input type="number" name="people" id="people">
-        <span class="left-icon">$</span>
+        <div class="input-container">
+          <input type="number" name="people" id="people" placeholder="0" step="1">
+          <span class="left-icon"><img src="/images/icon-person.svg" alt=""></span>
+        </div>
       </label>
     </div>
     <div class="box box--2">

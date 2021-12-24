@@ -1,2 +1,6 @@
 @use "./global";
 @use "./variables";
+
+@use "./atoms/atoms.scss";
+
+@use "./organisms/organisms.scss"

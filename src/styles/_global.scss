@@ -1,6 +1,14 @@
-html {
-    font-family: 'Space Mono', monospace;
+@use "./variables"as *;
+
+* {
     box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background-color: $lightCyan1;
+    font-family: 'Space Mono', monospace;
     font-size: 62.5%;
 
     &.font-size {
@@ -11,9 +19,26 @@ html {
 body {
     margin: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+
+    &:active,
+    &:focus {
+        outline-width: 0;
+    }
 }
 
 a {
     text-decoration: none;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
 }

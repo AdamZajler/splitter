@@ -1,10 +1,16 @@
 /*!**********************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/index.scss ***!
   \**********************************************************************************************************************************************************/
-html {
-  font-family: "Space Mono", monospace;
+* {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background-color: #c5e4e7;
+  font-family: "Space Mono", monospace;
   font-size: 62.5%;
 }
 html.font-size {
@@ -14,11 +20,123 @@ html.font-size {
 body {
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input:active, input:focus {
+  outline-width: 0;
 }
 
 a {
   text-decoration: none;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.input {
+  display: block;
+}
+.input .input-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding-bottom: 0.75rem;
+}
+.input .input-container {
+  position: relative;
+}
+.input .input-container input {
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #f4fafa;
+  text-align: right;
+  font-size: 2.4rem;
+  color: #00494d;
+  font-weight: 600;
+  caret-color: transparent;
+}
+.input .input-container input::-webkit-input-placeholder {
+  color: #c5e4e7;
+}
+.input .input-container input::-moz-placeholder {
+  color: #c5e4e7;
+}
+.input .input-container input:-ms-input-placeholder {
+  color: #c5e4e7;
+}
+.input .input-container input::-ms-input-placeholder {
+  color: #c5e4e7;
+}
+.input .input-container input::placeholder {
+  color: #c5e4e7;
+}
+.input .input-container input:focus {
+  border: 2px solid #26c0ab;
+}
+.input .input-container input::-webkit-outer-spin-button,
+.input .input-container input::-webkit-inner-spin-button,
+.input .input-container input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+.input .input-container span.left-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translate(75%, -50%);
+          transform: translate(75%, -50%);
+}
+
+#container {
+  width: 90vw;
+  max-width: 800px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  border-radius: 25px;
+}
+#container > .box {
+  padding: 3rem 2.5rem;
+  margin: 2rem;
+}
+#container > .box--1 {
+  -ms-flex-preferred-size: 55%;
+      flex-basis: 55%;
+  margin-right: 0.5rem;
+}
+#container > .box--2 {
+  -ms-flex-preferred-size: 45%;
+      flex-basis: 45%;
+  margin-left: 0.5rem;
+  background-color: #00494d;
+  border-radius: 25px;
 }
 
 /*# sourceMappingURL=main.css.map*/

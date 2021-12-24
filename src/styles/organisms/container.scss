@@ -1,0 +1,26 @@
+@use "../variables"as *;
+
+#container {
+    width: 90vw;
+    max-width: 800px;
+    display: flex;
+    background-color: $white;
+    border-radius: 25px;
+
+    >.box {
+        padding: 3rem 2.5rem;
+        margin: 2rem;
+    }
+
+    >.box--1 {
+        flex-basis: 55%;
+        margin-right: .5rem;
+    }
+
+    >.box--2 {
+        flex-basis: 45%;
+        margin-left: .5rem;
+        background-color: $darkCyan1;
+        border-radius: 25px;
+    }
+}

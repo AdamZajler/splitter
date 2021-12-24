@@ -1,0 +1,53 @@
+@use "../variables"as *;
+
+.input {
+    display: block;
+
+    .input-title {
+        font-size: $formTitle;
+        font-weight: 400;
+        padding-bottom: .75rem;
+    }
+
+    .input-container {
+        position: relative;
+
+        input {
+            width: 100%;
+            border: 2px solid transparent;
+            border-radius: .5rem;
+            padding: .5rem 1rem;
+            background-color: $lightCyan2;
+            text-align: right;
+            font-size: $formInput;
+            color: $darkCyan1;
+            font-weight: 600;
+            caret-color: transparent;
+
+            &::placeholder {
+                color: $lightCyan1;
+            }
+
+            &:focus {
+                border: 2px solid $strongCyan;
+            }
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button,
+        input[type="number"] {
+            -moz-appearance: textfield;
+            -webkit-appearance: none;
+        }
+
+        span.left-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(75%, -50%);
+        }
+    }
+}

@@ -33,7 +33,8 @@ module.exports = {
     plugins: [new MiniCssExtractPlugin()],
 
     devServer: {
-        static: "./dist",
+        // static: "./dist",
+        static: './',
         hot: true,
     },
 };

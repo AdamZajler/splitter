@@ -64,6 +64,12 @@ class Splitter{
                 // When user is clicking calculate result
                 self.caluclate();
             })
+
+            if(tip.classList.contains("tip-custom")){
+                tip.addEventListener("blur", function () {
+                    self.caluclate();
+                });
+            }
         })
     }
 
@@ -140,6 +146,7 @@ console.log("bill: ", bill, "tip: ", tip, " people: ", people)
         document.querySelector(".reset > .btn").classList.remove("active");
     }
 }
+
 window.addEventListener('DOMContentLoaded', () => {
     new Splitter;
 

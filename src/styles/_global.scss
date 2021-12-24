@@ -26,6 +26,14 @@ body {
     align-items: center;
 }
 
+.master-image {
+    margin-bottom: 4rem;
+
+    @media(max-width: $mobile) {
+        margin-top: 100%;
+    }
+}
+
 input {
 
     &:active,

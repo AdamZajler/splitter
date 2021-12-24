@@ -9,42 +9,16 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 ### Screenshot
   ![comparasion of original project and my](https://github.com/AdamZajler/SPLITTER/blob/main/images/comparasion.png)
 ### Built with
-  webpack
-### What I learned
-  Most usefull thing that I learned was using webpack (i created my own "starter" package.json). Also I re-called many event listeners. New think for me was also "caret-color" in CSS (btw. super usefull <3).
-  - [Continued development] YES! Give me more projects <3
-  - [Useful resources] I can't bring up any resources. If I was having trouble I was just using Google asap.
-## Author [Adam Zajler](https://www.linkedin.com/in/adam-zajler-255ba8212/)
-## Acknowledgments
-[Frontend Mentor](https://github.com/frontendmentorio) for bringing project.
-[Kevin Powell ](https://www.youtube.com/user/KepowOb) for mentioning up in his videos about Frontend Mentor.
-
-## Overview
-
-### The challenge
-
-Users should be able to:
-
-- View the optimal layout for the app depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Calculate the correct tip and total cost of the bill per person
-
-### Links
-
-- Solution URL: [WORKING DEMO](https://your-solution-url.com)
-## My process
-
-### Built with
-
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
 - Webpack
-### New thing that i learned
+### What I learned
+  Most usefull thing that I learned was using webpack (i created my own "starter" package.json). Also I re-called many event listeners. New think for me was also "caret-color" in CSS (btw. super usefull <3).
 
-```css
+  ```css
 input {
   caret-color: transparent;
 
@@ -57,5 +31,8 @@ input {
   }
 }
 ```
-
 Just by writing code above now your input have "|" transparent and it's placeholder has a different color and so more when user clicks, placeholder disappears.
+## Acknowledgments
+[Frontend Mentor](https://github.com/frontendmentorio) for bringing project and 
+[Kevin Powell ](https://www.youtube.com/user/KepowOb) for mentioning up in his videos about Frontend Mentor.
+## Author [Adam Zajler](https://www.linkedin.com/in/adam-zajler-255ba8212/)

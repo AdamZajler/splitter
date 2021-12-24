@@ -53,6 +53,8 @@
             &:focus {
                 border: 2px solid $strongCyan;
                 text-align: right;
+                background-color: $lightCyan2;
+                color: $darkCyan1;
 
                 &::placeholder {
                     color: transparent;
@@ -63,9 +65,9 @@
                 color: $darkCyan3;
             }
 
-            &:hover {
-                background-color: $lightCyan2;
-            }
+            // &:hover {
+            //     background-color: $lightCyan2;
+            // }
         }
     }
 }

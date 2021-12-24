@@ -138,7 +138,7 @@ p {
   color: #d35a5a;
 }
 .input.error input {
-  border-color: #d35a5a;
+  border-color: #d35a5a !important;
 }
 
 .tip-options {
@@ -193,6 +193,8 @@ p {
 .tip-options .tips .tip-custom:focus {
   border: 2px solid #26c0ab;
   text-align: right;
+  background-color: #f4fafa;
+  color: #00494d;
 }
 .tip-options .tips .tip-custom:focus::-webkit-input-placeholder {
   color: transparent;
@@ -223,9 +225,6 @@ p {
 }
 .tip-options .tips .tip-custom::placeholder {
   color: #7f9c9f;
-}
-.tip-options .tips .tip-custom:hover {
-  background-color: #f4fafa;
 }
 
 .summary {

@@ -5,16 +5,22 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](Most)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [The challenge]
+  The most difficult thing to do in this project was to copy 1: 1 look (as much as I can) of original project. I think this case is done good by me :)
+  - [Screenshot]
+  ![comparasion of original project and my](https://github.com/AdamZajler/SPLITTER/blob/main/images/comparasion.png)
 - [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+  - [Built with]
+  webpack
+  - [What I learned]
+  Most usefull thing that I learned was using webpack (i created my own "starter" package.json). Also I re-called many event listeners. New think for me was also "caret-color" in CSS (btw. super usefull <3).
+  - [Continued development] YES! Give me more projects <3
+  - [Useful resources] I can't bring up any resources. If I was having trouble I was just using Google asap.
+- [Author] [Adam Zajler](https://www.linkedin.com/in/adam-zajler-255ba8212/)
+- [Acknowledgments]
+[Frontend Mentor](https://github.com/frontendmentorio) for bringing project.
+[Kevin Powell ](https://www.youtube.com/user/KepowOb) for mentioning up in his videos about Frontend Mentor.
+
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 

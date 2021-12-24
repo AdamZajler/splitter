@@ -2,8 +2,6 @@
 
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Table of contents
-
 ## The challenge
   The most difficult thing to do in this project was to copy 1: 1 look (as much as I can) of original project. I think this case is done good by me :)
 ### Screenshot
@@ -22,13 +20,13 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 input {
   caret-color: transparent;
 
-  &::placeholder {
-    color: green;
-  }
+    &::placeholder {
+      color: green;
+    }
   
-  &:focus::placeholder {
-    color: transparent;
-  }
+    &:focus::placeholder {
+      color: transparent;
+    }
 }
 ```
 Just by writing code above now your input have "|" transparent and it's placeholder has a different color and so more when user clicks, placeholder disappears.

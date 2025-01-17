@@ -5,15 +5,15 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.16",
-    "cross-env": "^7.0.3",
+    "autoprefixer": "10.4.20",
+    "cross-env": "7.0.3",
     "esbuild": "0.24.2",
     "esbuild-sass-plugin": "3.3.1",
-    "eslint": "^9.18.0",
-    "husky": "^9.1.7",
-    "live-server": "^1.2.0",
-    "postcss": "^8.4.31",
-    "prettier": "^3.4.2"
+    "eslint": "9.18.0",
+    "husky": "9.1.7",
+    "live-server": "1.2.2",
+    "postcss": "8.5.1",
+    "prettier": "3.4.2"
   },
   "type": "module"
 }

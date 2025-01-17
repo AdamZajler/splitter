@@ -69,4 +69,4 @@ async function runBuild() {
   }
 }
 
-runBuild();
+void runBuild();

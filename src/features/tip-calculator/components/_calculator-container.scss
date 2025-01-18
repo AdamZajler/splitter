@@ -1,0 +1,9 @@
+@use "config" as *;
+
+#calculatorContainer {
+  background-color: $white;
+  display: flex;
+  gap: spacing(20);
+  padding: spacing(8);
+  border-radius: spacing(6);
+}

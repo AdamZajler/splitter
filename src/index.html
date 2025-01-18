@@ -2,12 +2,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon.png" />
     <link rel="stylesheet" href="public/main.css" />
     <script src="public/main.js" defer></script>
 
-    <title>Document</title>
+    <title>Tip calculator</title>
   </head>
   <body>
-    test
+    <main>
+      <img width="87" height="54" src="public/images/logo.svg" alt="Splitter logo" />
+      <div id="calculatorContainer">
+        <section id="calculateOptions">
+          <div class="input">
+            <label for="bill">Bill</label>
+            <div class="inputContainer">
+              <img src="public/images/icon-dollar.svg" alt="Dollar icon" />
+              <input type="number" id="bill" placeholder="0" />
+            </div>
+          </div>
+        </section>
+        <section id="results"></section>
+      </div>
+    </main>
   </body>
 </html>

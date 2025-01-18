@@ -3,8 +3,12 @@ import { sassPlugin } from "esbuild-sass-plugin";
 import autoprefixer from "autoprefixer";
 import postcss from "postcss";
 import liveServer from "live-server";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const isDev = process.env.NODE_ENV === "development";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 /** @type {import('esbuild').BuildOptions} */
 const buildOptions = {
@@ -29,6 +33,7 @@ const buildOptions = {
         const { css } = await postcss([autoprefixer]).process(source);
         return css;
       },
+      loadPaths: [path.resolve(__dirname, "src")],
     }),
   ],
 };

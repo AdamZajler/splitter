@@ -1,0 +1,52 @@
+@use "config" as *;
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(2);
+
+  label {
+    color: $darkCyan2;
+  }
+
+  .inputContainer {
+    position: relative;
+
+    input {
+      width: 100%;
+      max-width: 320px;
+      border: 2px solid transparent;
+      border-radius: spacing(1);
+      background-color: $lightCyan2;
+      padding: spacing(2) spacing(4) spacing(2) spacing(8);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      caret-color: $strongCyan;
+      color: $darkCyan1;
+      transition: border-color 0.1s linear;
+
+      &,
+      &::placeholder {
+        font-size: $formInput;
+        text-align: right;
+      }
+
+      &::placeholder {
+        color: $darkCyan3;
+      }
+
+      &:focus,
+      &:hover {
+        border-color: $strongCyan;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: spacing(4);
+      transform: translateY(-50%);
+    }
+  }
+}

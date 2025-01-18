@@ -18,8 +18,15 @@
           <div class="input">
             <label for="bill">Bill</label>
             <div class="inputContainer">
-              <img src="public/images/icon-dollar.svg" alt="Dollar icon" />
-              <input type="number" id="bill" placeholder="0" />
+              <img width="11" height="17" src="public/images/icon-dollar.svg" alt="Dollar icon" />
+              <input type="number" id="bill" placeholder="0" min="0" step=".01" />
+            </div>
+          </div>
+          <div class="input">
+            <label for="number-of-people">Number of People</label>
+            <div class="inputContainer">
+              <img width="13" height="16" src="public/images/icon-person.svg" alt="Dollar icon" />
+              <input type="number" id="number-of-people" placeholder="0" min="0" step="1" />
             </div>
           </div>
         </section>

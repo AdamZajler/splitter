@@ -22,6 +22,10 @@ body main {
 body main {
   gap: 80px;
 }
+input,
+label {
+  font-weight: 700;
+}
 input:active,
 input:focus {
   outline-width: 0;
@@ -40,11 +44,66 @@ p {
   margin: 0;
   padding: 0;
 }
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.input label {
+  color: hsl(186, 14%, 43%);
+}
+.input .inputContainer {
+  position: relative;
+}
+.input .inputContainer input {
+  width: 100%;
+  max-width: 320px;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: hsl(189, 41%, 97%);
+  padding: 8px 16px 8px 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  caret-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  transition: border-color 0.1s linear;
+}
+.input .inputContainer input::-moz-placeholder {
+  font-size: 24px;
+  text-align: right;
+}
+.input .inputContainer input,
+.input .inputContainer input::placeholder {
+  font-size: 24px;
+  text-align: right;
+}
+.input .inputContainer input::-moz-placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.input .inputContainer input::placeholder {
+  color: hsl(184, 14%, 56%);
+}
+.input .inputContainer input:focus,
+.input .inputContainer input:hover {
+  border-color: hsl(172, 67%, 45%);
+}
+.input .inputContainer img {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}
 #calculatorContainer {
   background-color: hsl(0, 0%, 100%);
   display: flex;
   gap: 80px;
   padding: 32px;
   border-radius: 24px;
+}
+#calculatorContainer #calculateOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 /*# sourceMappingURL=main.css.map */

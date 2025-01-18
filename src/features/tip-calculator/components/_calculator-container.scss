@@ -6,4 +6,10 @@
   gap: spacing(20);
   padding: spacing(8);
   border-radius: spacing(6);
+
+  #calculateOptions {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(10);
+  }
 }

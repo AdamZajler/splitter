@@ -16,14 +16,25 @@
       <div id="calculatorContainer">
         <section id="calculateOptions">
           <div class="input">
-            <label for="bill">Bill</label>
+            <label class="label" for="bill">Bill</label>
             <div class="inputContainer">
               <img width="11" height="17" src="public/images/icon-dollar.svg" alt="Dollar icon" />
               <input type="number" id="bill" placeholder="0" min="0" step=".01" />
             </div>
           </div>
+          <div id="tipValuesContainer">
+            <p class="label">Select Tip %</p>
+            <div class="values">
+              <button class="value-btn" value="5">5%</button>
+              <button class="value-btn" value="5">10%</button>
+              <button class="value-btn" value="5">15%</button>
+              <button class="value-btn" value="5">25%</button>
+              <button class="value-btn" value="5">50%</button>
+              <button class="value-btn" value="5">75%</button>
+            </div>
+          </div>
           <div class="input">
-            <label for="number-of-people">Number of People</label>
+            <label class="label" for="number-of-people">Number of People</label>
             <div class="inputContainer">
               <img width="13" height="16" src="public/images/icon-person.svg" alt="Dollar icon" />
               <input type="number" id="number-of-people" placeholder="0" min="0" step="1" />

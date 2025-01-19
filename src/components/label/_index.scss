@@ -1,0 +1,7 @@
+@use "../../config/index" as *;
+
+.label {
+  color: $darkCyan2;
+  font-weight: $fontWeightBold;
+  margin-bottom: spacing(2);
+}

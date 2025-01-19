@@ -10,6 +10,14 @@
   #calculateOptions {
     display: flex;
     flex-direction: column;
-    gap: spacing(10);
+    gap: spacing(8);
+
+    #tipValuesContainer {
+      .values {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: spacing(3);
+      }
+    }
   }
 }

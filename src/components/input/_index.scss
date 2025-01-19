@@ -1,13 +1,8 @@
-@use "config" as *;
+@use "../../config/index" as *;
 
 .input {
   display: flex;
   flex-direction: column;
-  gap: spacing(2);
-
-  label {
-    color: $darkCyan2;
-  }
 
   .inputContainer {
     position: relative;
@@ -24,7 +19,7 @@
       overflow: hidden;
       caret-color: $strongCyan;
       color: $darkCyan1;
-      transition: border-color 0.1s linear;
+      transition: transitionShort(border-color);
 
       &,
       &::placeholder {
@@ -47,6 +42,10 @@
       top: 50%;
       left: spacing(4);
       transform: translateY(-50%);
+
+      &:hover + input {
+        border-color: $strongCyan;
+      }
     }
   }
 }

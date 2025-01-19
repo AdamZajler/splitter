@@ -1,16 +1,21 @@
 @use "config" as *;
 
 #calculatorContainer {
+  --box-width: 320px;
+  --r1: 16px;
+  --d: 24px;
+
   background-color: $white;
   display: flex;
   gap: spacing(20);
-  padding: spacing(8);
-  border-radius: spacing(6);
+  padding: var(--d) var(--d) var(--d) calc(var(--d) * 1.5);
+  border-radius: calc(var(--r1) + var(--d));
 
   #calculateOptions {
     display: flex;
     flex-direction: column;
     gap: spacing(8);
+    padding-bottom: var(--d);
 
     #tipValuesContainer {
       .values {
@@ -19,5 +24,15 @@
         gap: spacing(3);
       }
     }
+  }
+
+  #results {
+    width: var(--box-width);
+    background-color: $darkCyan1;
+    padding: calc(var(--d) * 1.5) var(--d);
+    border-radius: var(--r1);
+    display: flex;
+    flex-direction: column;
+    gap: spacing(10);
   }
 }

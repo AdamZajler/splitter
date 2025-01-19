@@ -1,0 +1,15 @@
+@use "../../config/index" as *;
+
+.resultLabel {
+  display: flex;
+  flex-direction: column;
+
+  .text {
+    color: $white;
+  }
+
+  .sub-text {
+    color: $darkCyan3;
+    font-size: 14px;
+  }
+}

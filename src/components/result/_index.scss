@@ -1,0 +1,10 @@
+@use "config" as *;
+
+@forward "result-label";
+@forward "result-value";
+
+.result {
+  display: flex;
+  gap: spacing(10);
+  justify-content: space-between;
+}

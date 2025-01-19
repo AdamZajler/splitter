@@ -1,0 +1,6 @@
+@use "config" as *;
+
+.resultValue {
+  font-size: $formResult;
+  color: $strongCyan;
+}

@@ -23,6 +23,11 @@
     }
   }
 
+  &.disabled {
+    pointer-events: none;
+    filter: opacity(0.25);
+  }
+
   &:hover {
     background-color: $strongCyan;
     color: $darkCyan1;

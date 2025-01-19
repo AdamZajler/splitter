@@ -1,5 +1,7 @@
 @use "../colors/index" as *;
 @use "../typography/index" as *;
+@use "../breakpoints/index" as *;
+@use "../utils/index" as *;
 
 * {
   box-sizing: border-box;
@@ -12,14 +14,14 @@ html {
 
 body {
   margin: 0;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   font-size: 16px;
   overflow-x: hidden;
   font-weight: $fontWeightBold;
 
   &,
   & main {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,6 +30,12 @@ body {
 
   & main {
     gap: 80px;
+
+    & > img {
+      @media (max-width: $desktop) {
+        margin-top: spacing(16);
+      }
+    }
   }
 }
 

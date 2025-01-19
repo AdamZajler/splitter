@@ -4,12 +4,26 @@
   --box-width: 320px;
   --r1: 16px;
   --d: 24px;
+  --border-radius: calc(var(--r1) + var(--d));
 
+  width: 100%;
   background-color: $white;
   display: flex;
-  gap: spacing(20);
-  padding: var(--d) var(--d) var(--d) calc(var(--d) * 1.5);
-  border-radius: calc(var(--r1) + var(--d));
+  flex-direction: column;
+  gap: spacing(4);
+  padding: var(--d);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+
+  @media (min-width: $mobile) {
+    width: fit-content;
+    border-radius: var(--border-radius);
+  }
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    gap: spacing(20);
+    padding: var(--d) var(--d) var(--d) calc(var(--d) * 1.5);
+  }
 
   #calculateOptions {
     display: flex;
@@ -27,14 +41,17 @@
   }
 
   #results {
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    width: var(--box-width);
+    width: 100%;
     background-color: $darkCyan1;
     padding: calc(var(--d) * 1.5) var(--d);
     border-radius: var(--r1);
 
+    @media (min-width: $desktop) {
+      width: var(--box-width);
+    }
+
+    &,
     .wrapper {
       display: flex;
       flex-direction: column;

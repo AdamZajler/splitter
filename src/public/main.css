@@ -100,22 +100,6 @@ p {
   font-weight: 700;
   margin-bottom: 8px;
 }
-.value-btn {
-  cursor: pointer;
-  border: none;
-  width: 100px;
-  border-radius: 4px;
-  padding: 8px 16px;
-  background-color: hsl(183, 100%, 15%);
-  color: hsl(0, 0%, 100%);
-  font-weight: 700;
-  font-size: 24px;
-  transition: background-color 0.1s linear;
-}
-.value-btn:hover {
-  background-color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
-}
 .resultLabel {
   display: flex;
   flex-direction: column;
@@ -135,6 +119,31 @@ p {
   display: flex;
   gap: 40px;
   justify-content: space-between;
+}
+.btn {
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  min-height: 40px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  background-color: hsl(183, 100%, 15%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  font-size: 24px;
+  transition: background-color 0.1s linear, filter 0.1s linear;
+}
+.btn.outlined {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+  font-size: 14px;
+}
+.btn.outlined:hover {
+  filter: brightness(1.25);
+}
+.btn:hover {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
 }
 #calculatorContainer {
   --box-width: 320px;
@@ -158,12 +167,20 @@ p {
   gap: 12px;
 }
 #calculatorContainer #results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: var(--box-width);
   background-color: hsl(183, 100%, 15%);
   padding: calc(var(--d) * 1.5) var(--d);
   border-radius: var(--r1);
+}
+#calculatorContainer #results .wrapper {
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+#calculatorContainer #results #resetBtn {
+  align-self: flex-end;
 }
 /*# sourceMappingURL=main.css.map */

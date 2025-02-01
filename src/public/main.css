@@ -154,7 +154,8 @@ p {
   pointer-events: none;
   filter: opacity(0.25);
 }
-.btn:hover {
+.btn:hover,
+.btn.active {
   background-color: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }

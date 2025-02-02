@@ -14,7 +14,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- Webpack
+- ESBuild
 ### What I learned
   Most usefull thing that I learned was using webpack (i created my own "starter" package.json). Also I re-called many event listeners. New think for me was also "caret-color" in CSS (btw. super usefull <3).
 

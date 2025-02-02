@@ -4,21 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon.png" />
-    <link rel="stylesheet" href="public/main.css" />
-    <script src="public/main.js" defer></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="src/public/images/favicon.png" />
+    <link rel="stylesheet" href="src/public/main.css" />
+    <script src="src/public/main.js" defer></script>
 
     <title>Tip calculator</title>
   </head>
   <body>
     <main>
-      <img width="87" height="54" src="public/images/logo.svg" alt="Splitter logo" />
+      <img width="87" height="54" src="src/public/images/logo.svg" alt="Splitter logo" />
       <div id="calculatorContainer">
         <section id="calculateOptions">
           <div class="input">
             <label class="label" for="bill">Bill</label>
             <div class="inputContainer">
-              <img width="11" height="17" src="public/images/icon-dollar.svg" alt="Dollar icon" />
+              <img
+                width="11"
+                height="17"
+                src="src/public/images/icon-dollar.svg"
+                alt="Dollar icon"
+              />
               <input type="number" id="bill" placeholder="0" min="0" step=".01" />
             </div>
           </div>
@@ -47,7 +52,12 @@
           <div class="input">
             <label class="label" for="number-of-people">Number of People</label>
             <div class="inputContainer">
-              <img width="13" height="16" src="public/images/icon-person.svg" alt="Dollar icon" />
+              <img
+                width="13"
+                height="16"
+                src="src/public/images/icon-person.svg"
+                alt="Dollar icon"
+              />
               <input type="number" id="number-of-people" placeholder="0" min="0" step="1" />
             </div>
           </div>

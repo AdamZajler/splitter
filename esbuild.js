@@ -41,7 +41,7 @@ const buildOptions = {
 const liveServerParams = {
   port: 3000,
   host: "localhost",
-  root: "src",
+  root: "",
   open: true,
   file: "index.html",
   wait: 100,

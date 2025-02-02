@@ -24,7 +24,7 @@ body main {
 body main {
   gap: 80px;
 }
-@media (max-width: 724px) {
+@media (max-width: 840px) {
   body main > img {
     margin-top: 64px;
   }
@@ -71,11 +71,6 @@ p {
   color: hsl(183, 100%, 15%);
   transition: border-color 0.1s linear;
 }
-@media (min-width: 724px) {
-  .input .inputContainer input {
-    max-width: 320px;
-  }
-}
 .input .inputContainer input::-moz-placeholder {
   font-size: 24px;
   text-align: right;
@@ -92,8 +87,13 @@ p {
   color: hsl(184, 14%, 56%);
 }
 .input .inputContainer input:focus,
-.input .inputContainer input:hover {
+.input .inputContainer input:hover,
+.input .inputContainer input.active {
   border-color: hsl(172, 67%, 45%);
+}
+.input .inputContainer input.equal-padding {
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 .input .inputContainer img {
   position: absolute;
@@ -179,7 +179,7 @@ p {
     border-radius: var(--border-radius);
   }
 }
-@media (min-width: 724px) {
+@media (min-width: 840px) {
   #calculatorContainer {
     flex-direction: row;
     gap: 80px;
@@ -192,10 +192,24 @@ p {
   gap: 32px;
   padding-bottom: var(--d);
 }
+#calculatorContainer #calculateOptions #tipValuesContainer {
+  --option-width: 118px;
+  --spacing: 12px;
+}
+@media (min-width: 840px) {
+  #calculatorContainer #calculateOptions #tipValuesContainer {
+    min-width: calc(3 * var(--option-width) + 2 * var(--spacing));
+  }
+}
 #calculatorContainer #calculateOptions #tipValuesContainer .values {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(var(--option-width), 1fr));
   gap: 12px;
+}
+@media (min-width: 840px) {
+  #calculatorContainer #calculateOptions #tipValuesContainer .values {
+    grid-template-columns: repeat(auto-fill, var(--option-width));
+  }
 }
 #calculatorContainer #results {
   justify-content: space-between;
@@ -204,7 +218,7 @@ p {
   padding: calc(var(--d) * 1.5) var(--d);
   border-radius: var(--r1);
 }
-@media (min-width: 724px) {
+@media (min-width: 840px) {
   #calculatorContainer #results {
     width: var(--box-width);
   }

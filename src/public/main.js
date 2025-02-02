@@ -12,20 +12,14 @@
     numberOfPeopleValue,
     tipAmountElement
   }) {
-    if (billValue === 0 || tipValue === 0 || numberOfPeopleValue === 0) {
-      return;
-    }
     const tipAmount = billValue * tipValue / 100 / numberOfPeopleValue;
-    tipAmountElement.textContent = `${tipAmount.toFixed(2)}`;
+    tipAmountElement.textContent = billValue === 0 || numberOfPeopleValue === 0 ? "0.00" : tipAmount.toFixed(2);
   }
 
   // src/features/tip-calculator/utils/calculateTotal.ts
   function calculateTotal({ billValue, numberOfPeopleValue, totalAmountElement }) {
-    if (billValue === 0 || numberOfPeopleValue === 0) {
-      return;
-    }
     const totalAmount = billValue / numberOfPeopleValue;
-    totalAmountElement.textContent = `${totalAmount.toFixed(2)}`;
+    totalAmountElement.textContent = billValue === 0 || numberOfPeopleValue === 0 ? "0.00" : totalAmount.toFixed(2);
   }
 
   // src/features/tip-calculator/utils/checkReset.ts
@@ -35,10 +29,21 @@
     }
   }
 
+  // src/features/tip-calculator/utils/parseValue.ts
+  function parseValue(value) {
+    return parseFloat(value) || 0;
+  }
+
+  // src/features/tip-calculator/utils/clearTipInputClass.ts
+  function clearTipInputClass(tipInput) {
+    tipInput.classList.remove("active");
+  }
+
   // src/features/tip-calculator/TipCalculator.ts
   var TipCalculator = class {
     #billInput;
     #tipButtons;
+    #tipInput;
     #numberOfPeopleInput;
     #tipAmountElement;
     #totalAmountElement;
@@ -51,6 +56,8 @@
       if (!this.#billInput) throw new Error("Bill input not found");
       this.#tipButtons = document.querySelectorAll("#tipValuesContainer .values button");
       if (!this.#tipButtons) throw new Error("Tip buttons not found");
+      this.#tipInput = document.querySelector("#tip");
+      if (!this.#tipInput) throw new Error("Tip input not found");
       this.#numberOfPeopleInput = document.querySelector("#number-of-people");
       if (!this.#numberOfPeopleInput) throw new Error("Number of people input not found");
       this.#tipAmountElement = document.querySelector("#tip-amount");
@@ -64,31 +71,48 @@
     #initialize = () => {
       this.#addInteractivityForBillInput();
       this.#addInteractivityForTipButtons();
+      this.#addInteractivityForTipInput();
       this.#addInteractivityForNumberOfPeopleInput();
       this.#addInteractivityForResetButton();
     };
     #addInteractivityForBillInput = () => {
       const that = this;
       this.#billInput.addEventListener("input", function() {
-        that.#billValue = parseFloat(this.value);
-        that.#calculateThings();
+        that.#obtainBillValue();
+      });
+    };
+    #addInteractivityForTipInput = () => {
+      const that = this;
+      this.#tipInput.addEventListener("click", function() {
+        that.#handleClearTipsButtonsClass();
+        that.#tipInput.classList.add("active");
+        that.#obtainTipValueFromInput();
+      });
+      this.#tipInput.addEventListener("input", function() {
+        that.#handleClearTipsButtonsClass();
+        that.#obtainTipValueFromInput();
       });
     };
     #addInteractivityForTipButtons = () => {
       const that = this;
       this.#tipButtons.forEach((button) => {
         button.addEventListener("click", function() {
-          that.#tipValue = parseFloat(this.value);
-          that.#calculateThings();
-          that.#handleTipButtonClick(this);
+          if (button.classList.contains("active")) {
+            that.#handleClearTipsButtonsClass();
+            that.#obtainTipValueFromButton();
+            return;
+          }
+          that.#handleClearTipInputClass();
+          that.#handleClearTipsButtonsClass();
+          that.#obtainTipValueFromButton(this);
+          button.classList.add("active");
         });
       });
     };
     #addInteractivityForNumberOfPeopleInput = () => {
       const that = this;
       this.#numberOfPeopleInput.addEventListener("input", function() {
-        that.#numberOfPeopleValue = parseFloat(this.value);
-        that.#calculateThings();
+        that.#obtainNumberOfPeopleValue();
       });
     };
     #addInteractivityForResetButton = () => {
@@ -120,14 +144,33 @@
       this.#billInput.value = "";
       this.#totalAmountElement.textContent = "0.00";
       this.#numberOfPeopleInput.value = "";
-      clearTipsButtonsClass(this.#tipButtons);
+      this.#tipInput.value = "";
+      this.#handleClearTipsButtonsClass();
+      this.#handleClearTipInputClass();
       this.#resetButton.classList.add("disabled");
     };
-    #handleTipButtonClick = (element) => {
-      if (element.classList.contains("active")) return;
+    #handleClearTipsButtonsClass = () => {
       clearTipsButtonsClass(this.#tipButtons);
-      element.classList.add("active");
     };
+    #handleClearTipInputClass = () => {
+      clearTipInputClass(this.#tipInput);
+    };
+    #obtainTipValueFromInput() {
+      this.#tipValue = parseValue(this.#tipInput.value);
+      this.#calculateThings();
+    }
+    #obtainTipValueFromButton(button) {
+      this.#tipValue = parseValue(button?.value || "0");
+      this.#calculateThings();
+    }
+    #obtainBillValue() {
+      this.#billValue = parseValue(this.#billInput.value);
+      this.#calculateThings();
+    }
+    #obtainNumberOfPeopleValue() {
+      this.#numberOfPeopleValue = parseValue(this.#numberOfPeopleInput.value);
+      this.#calculateThings();
+    }
   };
 
   // src/main.js

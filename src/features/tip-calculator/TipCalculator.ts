@@ -2,10 +2,13 @@ import { clearTipsButtonsClass } from "./utils/clearTipsButtonsClass";
 import { calculateTip } from "./utils/calculateTip";
 import { calculateTotal } from "./utils/calculateTotal";
 import { checkReset } from "./utils/checkReset";
+import { parseValue } from "./utils/parseValue";
+import { clearTipInputClass } from "./utils/clearTipInputClass";
 
 export class TipCalculator {
   readonly #billInput: HTMLInputElement;
   readonly #tipButtons: NodeListOf<HTMLButtonElement>;
+  readonly #tipInput: HTMLInputElement;
   readonly #numberOfPeopleInput: HTMLInputElement;
 
   readonly #tipAmountElement: HTMLElement;
@@ -22,6 +25,9 @@ export class TipCalculator {
 
     this.#tipButtons = document.querySelectorAll("#tipValuesContainer .values button");
     if (!this.#tipButtons) throw new Error("Tip buttons not found");
+
+    this.#tipInput = document.querySelector("#tip") as HTMLInputElement;
+    if (!this.#tipInput) throw new Error("Tip input not found");
 
     this.#numberOfPeopleInput = document.querySelector("#number-of-people") as HTMLInputElement;
     if (!this.#numberOfPeopleInput) throw new Error("Number of people input not found");
@@ -41,6 +47,7 @@ export class TipCalculator {
   #initialize = () => {
     this.#addInteractivityForBillInput();
     this.#addInteractivityForTipButtons();
+    this.#addInteractivityForTipInput();
     this.#addInteractivityForNumberOfPeopleInput();
     this.#addInteractivityForResetButton();
   };
@@ -49,8 +56,26 @@ export class TipCalculator {
     const that = this;
 
     this.#billInput.addEventListener("input", function () {
-      that.#billValue = parseFloat(this.value);
-      that.#calculateThings();
+      that.#obtainBillValue();
+    });
+  };
+
+  #addInteractivityForTipInput = () => {
+    const that = this;
+
+    this.#tipInput.addEventListener("click", function () {
+      // Clear all active classes from tip buttons
+      that.#handleClearTipsButtonsClass();
+
+      that.#tipInput.classList.add("active");
+      that.#obtainTipValueFromInput();
+    });
+
+    this.#tipInput.addEventListener("input", function () {
+      // Clear all active classes from tip buttons
+      that.#handleClearTipsButtonsClass();
+
+      that.#obtainTipValueFromInput();
     });
   };
 
@@ -59,9 +84,20 @@ export class TipCalculator {
 
     this.#tipButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        that.#tipValue = parseFloat(this.value);
-        that.#calculateThings();
-        that.#handleTipButtonClick(this);
+        // If the button is already active, clear the tip value and recalculate
+        if (button.classList.contains("active")) {
+          that.#handleClearTipsButtonsClass();
+          that.#obtainTipValueFromButton();
+          return;
+        }
+
+        // Clear active class from tip input & buttons
+        that.#handleClearTipInputClass();
+        that.#handleClearTipsButtonsClass();
+
+        that.#obtainTipValueFromButton(this);
+
+        button.classList.add("active");
       });
     });
   };
@@ -70,8 +106,7 @@ export class TipCalculator {
     const that = this;
 
     this.#numberOfPeopleInput.addEventListener("input", function () {
-      that.#numberOfPeopleValue = parseFloat(this.value);
-      that.#calculateThings();
+      that.#obtainNumberOfPeopleValue();
     });
   };
 
@@ -109,15 +144,38 @@ export class TipCalculator {
     this.#billInput.value = "";
     this.#totalAmountElement.textContent = "0.00";
     this.#numberOfPeopleInput.value = "";
-    clearTipsButtonsClass(this.#tipButtons);
+    this.#tipInput.value = "";
+    this.#handleClearTipsButtonsClass();
+    this.#handleClearTipInputClass();
 
     this.#resetButton.classList.add("disabled");
   };
 
-  #handleTipButtonClick = (element: HTMLElement) => {
-    if (element.classList.contains("active")) return;
-
+  #handleClearTipsButtonsClass = () => {
     clearTipsButtonsClass(this.#tipButtons);
-    element.classList.add("active");
   };
+
+  #handleClearTipInputClass = () => {
+    clearTipInputClass(this.#tipInput);
+  };
+
+  #obtainTipValueFromInput() {
+    this.#tipValue = parseValue(this.#tipInput.value);
+    this.#calculateThings();
+  }
+
+  #obtainTipValueFromButton(button?: HTMLButtonElement) {
+    this.#tipValue = parseValue(button?.value || "0");
+    this.#calculateThings();
+  }
+
+  #obtainBillValue() {
+    this.#billValue = parseValue(this.#billInput.value);
+    this.#calculateThings();
+  }
+
+  #obtainNumberOfPeopleValue() {
+    this.#numberOfPeopleValue = parseValue(this.#numberOfPeopleInput.value);
+    this.#calculateThings();
+  }
 }

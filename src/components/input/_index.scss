@@ -20,10 +20,6 @@
       color: $darkCyan1;
       transition: transitionShort(border-color);
 
-      @media (min-width: $desktop) {
-        max-width: 320px;
-      }
-
       &,
       &::placeholder {
         font-size: $formInput;
@@ -35,8 +31,14 @@
       }
 
       &:focus,
-      &:hover {
+      &:hover,
+      &.active {
         border-color: $strongCyan;
+      }
+
+      &.equal-padding {
+        padding: spacing(2) spacing(3);
+        border-radius: spacing(2);
       }
     }
 

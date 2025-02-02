@@ -11,11 +11,8 @@ export function calculateTip({
   numberOfPeopleValue,
   tipAmountElement,
 }: Props) {
-  if (billValue === 0 || tipValue === 0 || numberOfPeopleValue === 0) {
-    return;
-  }
-
   const tipAmount = (billValue * tipValue) / 100 / numberOfPeopleValue;
 
-  tipAmountElement.textContent = `${tipAmount.toFixed(2)}`;
+  tipAmountElement.textContent =
+    billValue === 0 || numberOfPeopleValue === 0 ? "0.00" : tipAmount.toFixed(2);
 }

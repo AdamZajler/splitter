@@ -1,6 +1,6 @@
 # Frontend Mentor - Tip calculator app solution
 
-[demo](https://adamzajler.github.io/SPLITTER/)
+[demo]([https://adamzajler.github.io/SPLITTER/](https://adamzajler.github.io/splitter/))
 
 This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 

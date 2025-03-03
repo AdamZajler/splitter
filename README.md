@@ -1,24 +1,29 @@
-# Frontend Mentor - Tip calculator app solution
+# Frontend Mentor - Tip Calculator App 🎯💡📊
 
-[demo](https://adamzajler.github.io/splitter/)
+[![language](https://img.shields.io/badge/readme-polish-red)](./README-PL.md)
 
-This is a solution to the [Tip calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+[Check the demo](https://adamzajler.github.io/splitter/)
 
-## The challenge
-  The most difficult thing to do in this project was to copy 1: 1 look (as much as I can) of original project. I think this case is done good by me :)
-### Screenshot
-  ![comparasion of original project and my](https://github.com/AdamZajler/SPLITTER/blob/main/images/comparasion.png)
-### Built with
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
+This is my implementation of the [Tip Calculator App](https://www.frontendmentor.io/challenges/tip-calculator-app-ugJNGbJUX) challenge from Frontend Mentor. The goal was to create an interactive tip calculator that accurately replicates the appearance and functionality of the original design. 🏆✨📱
+
+## Challenge 🎯🚀🔍
+The biggest challenge in this project was accurately reproducing the look and behavior of the application. I believe I have achieved this goal, and I am satisfied with the final result. ✅💪😊
+
+## Technologies 🛠️📜⚡
+The project was built using:
+- TypeScript
 - ESBuild
-### What I learned
-  Most usefull thing that I learned was using webpack (i created my own "starter" package.json). Also I re-called many event listeners. New think for me was also "caret-color" in CSS (btw. super usefull <3).
+- HTML5
+- SCSS (Mobile-first workflow)
+- Flexbox & CSS Grid
 
-  ```css
+## What I Learned 📚🎓🖥️
+While working on this project:
+- I created my own starter with `package.json` for ESBuild,
+- I reviewed and reinforced my knowledge of various event listeners in JavaScript,
+- I discovered the CSS `caret-color` property, which allows changing the cursor color in an input field. ✍️🎨🔍
+
+```css
 input {
     caret-color: transparent;
 
@@ -31,8 +36,11 @@ input {
     }
 }
 ```
-Just by writing code above now your input have "|" transparent and it's placeholder has a different color and so more when user clicks, placeholder disappears.
-## Acknowledgments
-[Frontend Mentor](https://github.com/frontendmentorio) for bringing project and 
-[Kevin Powell ](https://www.youtube.com/user/KepowOb) for mentioning up in his videos about Frontend Mentor.
-## Author [Adam Zajler](https://www.linkedin.com/in/adam-zajler-255ba8212/)
+
+Thanks to this, the placeholder disappears when the input field is active, and the cursor remains invisible. 🧐🎯✅
+
+## Acknowledgments 🙌🎉👏
+Thank you to [Frontend Mentor](https://github.com/frontendmentorio) for providing the project and [Kevin Powell](https://www.youtube.com/user/KepowOb) for inspiring CSS content. 🎥💡❤️
+
+## Author ✍️👨‍💻🌟
+[Adam Zajler](https://www.linkedin.com/in/adam-zajler-255ba8212/)

@@ -68,3 +68,37 @@ p {
   margin: 0;
   padding: 0;
 }
+
+//#githubLink {
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  margin: 0;
+//  width: clamp(49px, 50%, 98px); /* Skalowanie między 49px a 98px */
+//  height: auto; /* Zachowanie proporcji */
+//}
+
+#githubLink {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+
+  img {
+    transition:
+      transform 0.4s ease-in-out,
+      filter 0.4s ease-in-out;
+    max-width: 50px;
+    height: auto;
+
+    &:hover {
+      transform: rotate(360deg) scale(1.1);
+      filter: drop-shadow(0 0 10px $strongCyan);
+    }
+  }
+}
+
+//#githubLink:hover img {
+//  transform: rotate(360deg) scale(1.1);
+//  filter: drop-shadow(0 0 10px $strongCyan);
+//}
